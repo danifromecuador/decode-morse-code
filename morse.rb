@@ -12,3 +12,15 @@ def decode_word word_in_morse_code
   end
   new_message = message.join(' ')
 end
+
+def decode_entire_message decode_entire_message
+  message_array = decode_entire_message.split(' ')
+  message = []
+  for word in message_array
+    message.push decode_word word
+  end
+  new_message = message.join(' ')
+  print new_message
+end
+
+decode_entire_message "-- -.--   -. .- -- ."
