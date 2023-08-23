@@ -10,7 +10,6 @@ def decode_word(word_in_morse_code)
   word_array.each do |character|
     message.push decode_character character
   end
-  new_message = message.join
 end
 
 def decode_entire_message(decode_entire_message)
