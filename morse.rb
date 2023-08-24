@@ -1,26 +1,23 @@
-require_relative 'morse_to_alphabet'
+require_relative 'hash'
 
-def decode_character(character_in_morse_code)
-  MORSE_CODE[character_in_morse_code]
+def decode_char(char)
+  HASH[char]
 end
 
-def decode_word(word_in_morse_code)
-  word_array = word_in_morse_code.split
-  message = []
-  word_array.each do |character|
-    message.push decode_character character
+def decode_word(word)
+  new_word = ''
+  word.split.each do |char|
+    new_word += decode_char(char)
   end
+  new_word
 end
 
-def decode_entire_message(decode_entire_message)
-  message_array = decode_entire_message.split('  ')
-  message = []
-  message_array.each do |word|
-    message.push decode_word word
+def decode_message(message)
+  new_message = ''
+  message.split('  ').each do |word|
+    new_message += "#{decode_word(word)} "
   end
-  new_message = message.join(' ')
-  print new_message
+  new_message
 end
 
-decode_entire_message('-- -.--   -. .- -- .')
-decode_entire_message('      .-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
+puts decode_message('.- .... --- .-. .-  .- .-..  ..-. .. -.  ...- ..- . .-.. ...- ---  .-  ... . .-.  -.-- --- ')
