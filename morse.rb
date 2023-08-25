@@ -14,8 +14,14 @@ end
 
 def decode_message(message)
   new_message = ''
+  counter = 0
   message.split('  ').each do |word|
-    new_message += "#{decode_word(word)} "
+    counter += 1
+    if counter == message.split('  ').length
+      new_message += "#{decode_word(word)}"
+    else
+      new_message += "#{decode_word(word)} "
+    end
   end
   new_message
 end
