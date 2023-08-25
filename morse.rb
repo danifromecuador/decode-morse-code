@@ -13,17 +13,9 @@ def decode_word(word)
 end
 
 def decode_message(message)
-  new_message = ''
-  counter = 0
-  message.split('  ').each do |word|
-    counter += 1
-    if counter == message.split('  ').length
-      new_message += "#{decode_word(word)}"
-    else
-      new_message += "#{decode_word(word)} "
-    end
-  end
-  new_message
+  words = message.split('  ')
+  decoded_words = words.map { |word| decode_word(word) }
+  decoded_words.join(' ')
 end
 
 puts decode_message('.- .... --- .-. .-  .- .-..  ..-. .. -.  ...- ..- . .-.. ...- ---  .-  ... . .-.  -.-- --- ')
